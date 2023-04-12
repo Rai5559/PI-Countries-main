@@ -1,19 +1,18 @@
 const axios = require('axios');
 const { Country } = require('../db.js');
 
-process.env.PGCLIENTENCODING = 'UTF8';
 
 // Función para obtener solo los datos que necesitas de cada país
 const formatCountryData = (countryData) => {
   return {
     id: countryData.cca3,
-    name : countryData.name.common,
-    flags: countryData.flag,
-    continent: countryData.region,
+    name : countryData.name.common || 'No name',
+    flags: countryData.flag || 'No flag',
+    continent: countryData.region || 'No continent',
     capital: countryData.capital?.[0] || 'No capital',
     subregion: countryData.subregion,
     area: countryData.area,
-    population: countryData.population,
+    population: countryData.population || 0,
   } 
   
   

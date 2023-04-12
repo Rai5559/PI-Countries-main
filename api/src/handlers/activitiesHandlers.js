@@ -13,9 +13,13 @@ const postActivity = async (req, res) => {
       season,
       countries
     );
-    res.status(201).send(newActivity);
+    res.status(201).send("Actividad creada con exito");
   } catch (error) {
-    res.status(500).send(error);
+    if (error.message === "La actividad ya existe" || error.message === "La actividad debe tener al menos un país asociado") {
+      res.status(409).send(error.message);
+    } else {
+      res.status(500).send(error);
+    }
   }
 };
 
