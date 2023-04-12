@@ -10,8 +10,8 @@ const formatCountryData = (countryData) => {
     flags: countryData.flag || 'No flag',
     continent: countryData.region || 'No continent',
     capital: countryData.capital?.[0] || 'No capital',
-    subregion: countryData.subregion,
-    area: countryData.area,
+    subregion: countryData.subregion || 'No subregion',
+    area: countryData.area  || 0,
     population: countryData.population || 0,
   } 
   

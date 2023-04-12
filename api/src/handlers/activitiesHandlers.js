@@ -5,6 +5,9 @@ const {
 
 const postActivity = async (req, res) => {
   const { name, difficulty, duration, season, countries } = req.body;
+  if (!name || !difficulty || !season) {
+    return res.status(400).send('Name, difficulty and season are required');
+  }
   try {
     const newActivity = await controllerCreateActivity(
       name,

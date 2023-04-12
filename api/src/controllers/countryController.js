@@ -1,15 +1,21 @@
 const { Country } = require("../db.js");
 const { Activity } = require("../db.js");
 const { formatCountries } = require("../utils/generalFunctions.js");
-
+const { Op } = require("sequelize");
 const getCountryByName = async (name) => {
-  const capitalized = name.charAt(0).toUpperCase() + name.slice(1);
+  
   const country = await Country.findAll({
     where: {
-      name: capitalized,
+      name: {
+        [Op.iLike]: `%${name}%`
+      }
     },
+    include: {
+      model: Activity,
+      through: { attributes: [] } 
+    }
   });
-  return country;
+  return formatCountries(country);
 };
 
 
@@ -28,8 +34,12 @@ const getCountryById = async (id) => {
     where: {
       id: id.toUpperCase(),
     },
+    include: {
+      model: Activity,
+      through: { attributes: [] } 
+    }
   });
-  return country;
+  return formatCountries(country);
 };
 
 
