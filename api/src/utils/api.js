@@ -7,7 +7,7 @@ const formatCountryData = (countryData) => {
   return {
     id: countryData.cca3,
     name : countryData.name.common || 'No name',
-    flags: countryData.flag || 'No flag',
+    flags: countryData.flags[1]|| 'No flag',
     continent: countryData.region || 'No continent',
     capital: countryData.capital?.[0] || 'No capital',
     subregion: countryData.subregion || 'No subregion',

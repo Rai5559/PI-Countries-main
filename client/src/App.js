@@ -1,8 +1,27 @@
+import { Routes, Route,  useLocation } from 'react-router-dom';
+import { Landing, Home, Detail, Form } from './utils/viewsExports';
+import { NavBar} from './utils/componentsExports';
 
 function App() {
+
+
+  const {pathname} = useLocation();
+
+
+
   return (
     <div className="App">
-      <h1>Henry Countries</h1>
+
+      <div>
+        {pathname !== '/' && <NavBar />}
+      </div> 
+
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/detail/:detailId" element={<Detail />} />
+        <Route path="/form" element={<Form />} />
+      </Routes>
     </div>
   );
 }
