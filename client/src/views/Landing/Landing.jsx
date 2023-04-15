@@ -1,13 +1,14 @@
-
 import { Link } from 'react-router-dom';
+import { Wrapper, Title, ButtonWrapper, Button } from './landingStyles';
 
-
-function Landing () {
+function Landing() {
   return (
-    <div>
-      <h1>Landing Page</h1>
-      <Link to={'/home'}><button>Home</button></Link>
-    </div>
+    <Wrapper>
+      <Title>Countries</Title>
+      <ButtonWrapper>
+        <Link to={'/home'}><Button>Home</Button></Link>
+      </ButtonWrapper>
+    </Wrapper>
   );
 }
 

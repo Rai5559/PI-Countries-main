@@ -13,7 +13,7 @@ function App() {
     <div className="App">
 
       <div>
-        {pathname !== '/' && <NavBar />}
+        {pathname === '/home' && <NavBar />}
       </div> 
 
       <Routes>
