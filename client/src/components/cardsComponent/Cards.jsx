@@ -1,17 +1,24 @@
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import Card from "../cardComponent/Card";
 import { CardsStyle } from "./cardsStyles";
 import Pagination from "../../components/paginationComponent/Pagination.jsx";
+import { clearSearch } from "../../redux/actions";
+
 
 const Cards = () => {
-  const countries = useSelector((state) => state.countries);
+  const dispatch = useDispatch();
+  const countries = useSelector((state) => {
+    return state.searchResults.length > 0 ? state.searchResults : state.countries;
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage] = useState(10);
 
+
   useEffect(() => {
     setCurrentPage(1);
-  }, [countries]);
+    dispatch(clearSearch());
+  }, [dispatch]);
 
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
@@ -25,6 +32,14 @@ const Cards = () => {
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+ if (currentCountries.length === 0) {
+    return (
+      <CardsStyle>
+        <p>No se encontraron coincidencias.</p>
+      </CardsStyle>
+    );
+  }
 
   return (
     <CardsStyle>

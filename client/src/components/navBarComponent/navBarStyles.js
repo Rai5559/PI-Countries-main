@@ -35,3 +35,23 @@ export const SearchBarContainer = styled.div`
     font-size: 1rem;
   }
 `;
+
+export const FilterContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  select {
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  label {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+`;

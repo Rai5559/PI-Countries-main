@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getCountryDetail } from "../../redux/actions";
-import { DivContainer } from "./detail";
+import { DivContainer, LoadingContainer, Map, LoadingText } from "./detail";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -14,13 +14,16 @@ const Detail = () => {
     dispatch(getCountryDetail(detailId));
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 1500);
   }, [dispatch, detailId]);
 
   return (
     <div>
       {isLoading ? (
-        <h1>Loading...</h1>
+        <LoadingContainer>
+          <Map/>
+          <LoadingText>Loading</LoadingText>
+        </LoadingContainer>
       ) : (
         countryBdd.map((country) => (
           <DivContainer key={country.id}>
