@@ -11,10 +11,10 @@ const controllerCreateActivity = async (
 ) => {
   const existingActivity = await Activity.findOne({ where: { name } });
   if (existingActivity) {
-    throw new Error("La actividad ya existe");
+    throw new Error("The activity already exists");
   }
   if (!countries || countries.length === 0) {
-    throw new Error("La actividad debe tener al menos un país asociado");
+    throw new Error("The activity must have at least one country");
   }
   const newActivity = await Activity.create({
     name,
@@ -29,10 +29,10 @@ const controllerCreateActivity = async (
 const controllerGetActivities = async () => {
   const activities = await Activity.findAll({
     include: {
-        model: Country,
-        attributes: ["name"],
-        through: { attributes: [] },
-      },
+      model: Country,
+      attributes: ["name"],
+      through: { attributes: [] },
+    },
   });
   return formatActivities(activities);
 };
