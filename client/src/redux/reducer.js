@@ -7,6 +7,7 @@ import {
   FILTER_BY_CONTINENT,
   SORT_BY_NAME,
   SORT_BY_POPULATION,
+  POST_ACTIVITY,
 } from "./actions";
 
 const initialState = {
@@ -84,6 +85,21 @@ function reducer(state = initialState, action) {
         ...state,
         countries: sortedByPopulation,
       };
+
+      case POST_ACTIVITY:
+        return {
+          ...state,
+          countries: state.countries.map((country) => {
+            if (country.id === action.payload.id) {
+              return {
+                ...country,
+                activities: [...country.activities, action.payload],
+              };
+            } else {
+              return country;
+            }
+          }),
+        };
 
     default:
       return { ...state };

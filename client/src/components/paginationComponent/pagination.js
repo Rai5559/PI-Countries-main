@@ -8,9 +8,10 @@ export const PaginationWrapper = styled.div`
   button {
     margin: 0 10px;
     padding: 5px 10px;
-    border: none;
-    background-color: #2c3e50;
-    color: #fff;
+    border: 1px solid #000;
+    box-shadow: 2px 2px 2px 2px #000;
+    background-color: #fff;
+    color: black;
     cursor: pointer;
     &:disabled {
       opacity: 0.5;

@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getCountryDetail } from "../../redux/actions";
-import { DivContainer, LoadingContainer, Map, LoadingText } from "./detail";
+import {
+  Container,
+  DivContainer,
+  LoadingContainer,
+  Map,
+  LoadingText,
+  ButtonContainer,
+  HomeButton,
+} from "./detail";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -18,28 +26,35 @@ const Detail = () => {
   }, [dispatch, detailId]);
 
   return (
-    <div>
+    <Container>
       {isLoading ? (
         <LoadingContainer>
-          <Map/>
+          <Map />
           <LoadingText>Loading</LoadingText>
         </LoadingContainer>
       ) : (
-        countryBdd.map((country) => (
-          <DivContainer key={country.id}>
-            <h1>ID: {country.id}</h1>
-            <h1>Name: {country.name}</h1>
-            <img src={country.flags} alt={country.name} />
-            <h2>Continent: {country.continent}</h2>
-            <h2>Capital: {country.capital}</h2>
-            <h2>Subregion: {country.subregion}</h2>
-            <h2>Area: {country.area}</h2>
-            <h2>Population: {country.population} inhabitants</h2>
-            <h2>Activities: {country.activities}</h2>
-          </DivContainer>
-        ))
+        <div>
+          {countryBdd.map((country) => (
+            <DivContainer key={country.id}>
+              <h1>ID: {country.id}</h1>
+              <h1>Name: {country.name}</h1>
+              <img src={country.flags} alt={country.name} />
+              <h2>Continent: {country.continent}</h2>
+              <h2>Capital: {country.capital}</h2>
+              <h2>Subregion: {country.subregion}</h2>
+              <h2>Area: {country.area}</h2>
+              <h2>Population: {country.population} inhabitants</h2>
+              <h2>Activities: {country.activities}</h2>
+            </DivContainer>
+          ))}
+          <ButtonContainer>
+            <Link to="/home">
+              <HomeButton>Home</HomeButton>
+            </Link>
+          </ButtonContainer>
+        </div>
       )}
-    </div>
+    </Container>
   );
 };
 

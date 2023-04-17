@@ -38,7 +38,7 @@ export default function NavBar() {
   return (
     <NavBarContainer>
       <NavLinks>
-        <Link to="/home">
+        <Link to="/home" >
           <h3>Home</h3>
         </Link>
         <Link to="/form">
@@ -46,7 +46,7 @@ export default function NavBar() {
         </Link>
       </NavLinks>
       <SearchBarContainer>
-        <input type="text" placeholder="Search" onChange={handleSearch} />
+        <input type="text" placeholder="Search Country" onChange={handleSearch} />
       </SearchBarContainer>
       <FilterContainer>
         <select onChange={handleContinentFilter}>

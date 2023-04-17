@@ -8,6 +8,7 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const SORT_BY_NAME = "SORT_BY_NAME";
 export const SORT_BY_POPULATION = "SORT_BY_POPULATION";
+export const POST_ACTIVITY = "POST_ACTIVITY";
 
 export function getCountries() {
   return function (dispatch) {
@@ -62,6 +63,13 @@ export const sortByPopulation = (order) => {
   return {
     type: SORT_BY_POPULATION,
     payload: order,
+  };
+};
+
+export const postActivity = (activity) => {
+  return async function (dispatch) {
+    const res = await axios.post("http://localhost:3001/activities", activity);
+    dispatch({ type: POST_ACTIVITY, payload: res.data });
   };
 };
 
