@@ -118,3 +118,15 @@ export const HomeButton = styled.button`
     color: #1e1e1e;
   }
 `;
+
+export const FloatingBox = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 1);
+  padding: 20px;
+  box-shadow: 0px 0px 40px rgba(255, 0, 0, 0.5);
+  color: white;
+  border-radius: 15px;
+`;

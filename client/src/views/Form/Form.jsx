@@ -2,19 +2,24 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postActivity } from "../../redux/actions";
 import { Link } from "react-router-dom";
-import { BGContainer, CountriesContainer, FormContainer, GeneralContainer } from "./formStyles";
+import { BGContainer, CountriesContainer, FormContainer, GeneralContainer, Selected, ErrorSpan } from "./formStyles";
 
 function Form({ postActivity, countries }) {
   const [input, setInput] = useState({
     name: "",
-    difficulty: 0,
-    duration: 0,
-    season: "",
+    difficulty: 1,
+    duration: 1,
+    season: "Verano",
     countries: [],
   });
 
   const [created, setCreated] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [errorMessage, setErrorMessage] = useState({
+    other: "",
+    name: "",
+    countries: "",
+  });
 
   function handleChange(e) {
     const value =
@@ -28,11 +33,14 @@ function Form({ postActivity, countries }) {
   }
 
   function handleCountrySelect(country) {
-    setInput({
-      ...input,
-      countries: [...input.countries, country.id],
-    });
+    if (!input.countries.includes(country.id)) {
+      setInput({
+        ...input,
+        countries: [...input.countries, country.id],
+      });
+    }
   }
+  
 
   function handleCountryRemove(index) {
     setInput({
@@ -43,6 +51,17 @@ function Form({ postActivity, countries }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    
+    if (input.name === "") {
+      setErrorMessage({ name: "Introduce un nombre para la actividad", countries: "" });
+      return;
+    }
+    
+    if (input.countries.length === 0) {
+      setErrorMessage({ name: "", countries: "Selecciona al menos un país" });
+      return;
+    }
+    
     await postActivity(input);
     setCreated(true);
   }
@@ -68,6 +87,7 @@ function Form({ postActivity, countries }) {
           value={input.name}
           onChange={handleChange}
         />
+        {errorMessage.name && <ErrorSpan>{errorMessage.name}</ErrorSpan>}
         <label htmlFor="difficulty">Difficulty</label>
         <select
           name="difficulty"
@@ -91,12 +111,16 @@ function Form({ postActivity, countries }) {
         </select>
 
         <label htmlFor="season">Season</label>
-        <input
-          type="text"
+        <select
           name="season"
           value={input.season}
           onChange={handleChange}
-        />
+        >
+          <option value="Verano">Verano</option>
+          <option value="Otoño">Otoño</option>
+          <option value="Invierno">Invierno</option>
+          <option value="Primavera">Primavera</option>
+        </select>
 
         <CountriesContainer>
           <label htmlFor="countries" >Countries</label>
@@ -118,15 +142,16 @@ function Form({ postActivity, countries }) {
             {input.countries.map((country, index) => (
               <span key={index}>
                 {country}{" "}
-                <button
+                <Selected
                   type="button"
                   onClick={() => handleCountryRemove(index)}
                 >
                   x
-                </button>
+                </Selected>
               </span>
             ))}
           </div>
+          {errorMessage.countries && <ErrorSpan>{errorMessage.countries}</ErrorSpan>}
         </CountriesContainer>
 
         <button type="submit">Create</button>

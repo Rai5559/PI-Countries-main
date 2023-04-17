@@ -4,6 +4,7 @@ import { NavBar} from './utils/componentsExports';
 import { useEffect } from "react";
 import { useDispatch} from "react-redux";
 import { getCountries } from "./redux/actions";
+import Activities from './views/Activities/Activities';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/activities" element={<Activities/>} />
       </Routes>
     </div>
   );

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { NavBarContainer, NavLinks, SearchBarContainer, FilterContainer } from "./navBarStyles";
 import { clearSearch, searchCountries, filterByContinent, filterByActivity, sortByName, sortByPopulation } from "../../redux/actions";
 
 export default function NavBar() {
   const dispatch = useDispatch();
+  const activities = useSelector((state) => state.activities);
+
 
   const handleSearch = (event) => {
     const name = event.target.value;
@@ -44,6 +46,9 @@ export default function NavBar() {
         <Link to="/form">
           <h3>Form</h3>
         </Link>
+        <Link to="/activities">
+          <h3>Activities</h3>
+        </Link>
       </NavLinks>
       <SearchBarContainer>
         <input type="text" placeholder="Search Country" onChange={handleSearch} />
@@ -60,11 +65,11 @@ export default function NavBar() {
         </select>
         <select onChange={handleActivityFilter}>
           <option value="">Filter by Activity</option>
-          <option value="hiking">Hiking</option>
-          <option value="rafting">Rafting</option>
-          <option value="diving">Diving</option>
-          <option value="skiing">Skiing</option>
-          <option value="surfing">Surfing</option>
+          {activities.map((a) => (
+            <option key={a.id} value={a.name}>
+              {a.name}
+            </option>
+          ))}
         </select>
         <select onChange={handleNameSort}>
           <option value="">Sort by Name</option>

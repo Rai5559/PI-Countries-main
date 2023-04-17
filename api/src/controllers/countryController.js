@@ -15,7 +15,7 @@ const getCountryByName = async (name) => {
       through: { attributes: [] } 
     }
   });
-  return formatCountries(country);
+  return country;
 };
 
 
@@ -26,7 +26,7 @@ const getAllCountries = async () => {
       through: { attributes: [] } 
     }
   });
-  return formatCountries(countries);
+  return countries;
 };
 
 const getCountryById = async (id) => {
@@ -39,7 +39,7 @@ const getCountryById = async (id) => {
       through: { attributes: [] } 
     }
   });
-  return formatCountries(country);
+  return country;
 };
 
 

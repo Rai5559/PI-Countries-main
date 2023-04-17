@@ -104,6 +104,7 @@ display: flex;
     padding: 0.5rem;
     margin-left: 0.5rem;
     cursor: pointer;
+    margin-top: 1rem;
   }
 `;
 
@@ -120,4 +121,24 @@ export const CountriesContainer = styled.div`
   ul {
     margin-top: 20px;
   }
+`;
+
+export const Selected = styled.span`
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+  background-color: black;
+
+`;
+
+export const ErrorSpan = styled.span`
+  color: red;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 `;

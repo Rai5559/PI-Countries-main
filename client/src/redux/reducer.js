@@ -8,12 +8,14 @@ import {
   SORT_BY_NAME,
   SORT_BY_POPULATION,
   POST_ACTIVITY,
+  GET_ACTIVITIES,
 } from "./actions";
 
 const initialState = {
   countries: [],
   countryDetail: [],
   searchResults: [],
+  activities: [],
 };
 
 function reducer(state = initialState, action) {
@@ -57,7 +59,7 @@ function reducer(state = initialState, action) {
       });
       return {
         ...state,
-        countries: filteredByActivity,
+        searchResults: filteredByActivity,
       };
 
     case SORT_BY_NAME:
@@ -99,6 +101,12 @@ function reducer(state = initialState, action) {
               return country;
             }
           }),
+        };
+
+      case GET_ACTIVITIES:
+        return {
+          ...state,
+          activities: action.payload,
         };
 
     default:
