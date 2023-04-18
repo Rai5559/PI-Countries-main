@@ -136,9 +136,23 @@ export const Selected = styled.span`
 `;
 
 export const ErrorSpan = styled.span`
-  color: red;
+  color: white;
+  background-color: red;
   font-size: 1rem;
   font-weight: bold;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+  padding: 2px;
+  text-align: center;
 `;
+
+export const SuccessSpan = styled.span`
+  color: white;
+  background-color: green;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  transform: scale(1.2);
+`;
+
