@@ -29,10 +29,7 @@ function Form({ postActivity, countries }) {
   });
 
   function handleChange(e) {
-    const value =
-      e.target.name === "difficulty" || e.target.name === "duration"
-        ? Number(e.target.value)
-        : e.target.value;
+    const value = e.target.value;
     setInput({
       ...input,
       [e.target.name]: value,
@@ -55,8 +52,8 @@ function Form({ postActivity, countries }) {
     });
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  async function handleSubmit(event) {
+    event.preventDefault();
 
     if (!/^[a-zA-Z]{4,10}$/.test(input.name)) {
       setErrorMessage({

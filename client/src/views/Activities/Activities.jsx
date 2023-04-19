@@ -25,7 +25,7 @@ const Activities = () => {
               <img src="https://images.wikidexcdn.net/mwuploads/esssbwiki/thumb/f/f2/latest/20160202180900/Kirby_SSB.png/800px-Kirby_SSB.png" alt="" />
               <ActivityInfo>
                 <p>Difficulty: {activity.difficulty}</p>
-                <p>Duration: {activity.duration}</p>
+                <p>Duration: {activity.duration} Hrs</p>
                 <p>Season: {activity.season}</p>
                 <p>Countries: {activity.countries}</p>
               </ActivityInfo>

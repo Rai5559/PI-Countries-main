@@ -25,11 +25,18 @@ const saveCountriesToDB = async () => {
     const response = await axios.get(`${API_URL}`);
     const countriesData = response.data;
     const countries = countriesData.map((countryData) => formatCountryData(countryData));
-    await Country.bulkCreate(countries);
-    console.log('Countries saved to database');
+
+    const existingCountries = await Country.findAll();
+
+    const newCountries = countries.filter((country) => {
+      return !existingCountries.find((existingCountry) => existingCountry.id === country.id);
+    });
+
+    await Country.bulkCreate(newCountries);
+
+    console.log(`${newCountries.length} countries saved to database`);
   } catch (error) {
     console.error('Error saving countries to database:', error);
   }
 }
-
 module.exports = { saveCountriesToDB };
