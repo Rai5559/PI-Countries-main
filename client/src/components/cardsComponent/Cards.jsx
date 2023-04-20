@@ -36,7 +36,7 @@ const Cards = () => {
  if (currentCountries.length === 0) {
     return (
       <CardsStyle>
-        <p>No se encontraron coincidencias.</p>
+        <p>Network error, please contact support</p>
       </CardsStyle>
     );
   }

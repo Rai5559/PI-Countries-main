@@ -13,23 +13,35 @@ export const GET_ACTIVITIES = "GET_ACTIVITIES";
 
 export function getCountries() {
   return function (dispatch) {
-    return axios.get("http://localhost:3001/countries").then((res) => {
-      dispatch({ type: GET_COUNTRIES, payload: res.data });
-    });
+    try {
+      return axios.get("http://localhost:3001/countries").then((res) => {
+        dispatch({ type: GET_COUNTRIES, payload: res.data });
+      });
+    } catch (error) {
+      console.log(error.message + ", Please contact the administrator/support");
+    }
   };
 }
 
 export function getCountryDetail(id) {
   return async function (dispatch) {
-    const res = await axios.get(`http://localhost:3001/countries/${id}`);
-    dispatch({ type: GET_COUNTRY_DETAIL, payload: res.data });
+    try {
+      const res = await axios.get(`http://localhost:3001/countries/${id}`);
+      dispatch({ type: GET_COUNTRY_DETAIL, payload: res.data });
+    } catch (error) {
+      console.log(error.message + ", Please contact the administrator/support");
+    }
   };
 }
 
 export const searchCountries = (searchTerm) => {
     return async function (dispatch) {
-        const res = await axios.get(`http://localhost:3001/countries?name=${searchTerm}`);
-        dispatch({ type: SEARCH_COUNTRIES, payload: res.data });
+        try {
+          const res = await axios.get(`http://localhost:3001/countries?name=${searchTerm}`);
+          dispatch({ type: SEARCH_COUNTRIES, payload: res.data });
+        } catch (error) {
+          console.log(error.message + ", Please contact the administrator/support");
+        }
 };
 };
 
@@ -69,17 +81,26 @@ export const sortByPopulation = (order) => {
 
 export const postActivity = (activity) => {
   return async function (dispatch) {
-    const res = await axios.post("http://localhost:3001/activities", activity);
-    dispatch({ type: POST_ACTIVITY, payload: res.data });
+    try {
+      const res = await axios.post("http://localhost:3001/activities", activity);
+      dispatch({ type: POST_ACTIVITY, payload: res.data });
+    } catch (error) {
+      console.error(error.message + ", Please contact the administrator/support");
+    }
   };
 };
 
 export const getActivities = () => {
   return async function (dispatch) {
-    const res = await axios.get("http://localhost:3001/activities");
-    dispatch({ type: GET_ACTIVITIES, payload: res.data });
+    try {
+      const res = await axios.get("http://localhost:3001/activities");
+      dispatch({ type: GET_ACTIVITIES, payload: res.data });
+    } catch (error) {
+      console.error(error.message + ", Please contact the administrator/support");
+    }
   };
 };
+
 
 // export function getCountryDetail(id) {
 //     return function(dispatch) {

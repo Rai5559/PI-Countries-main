@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCountries());
+      dispatch(getCountries());
   }, [dispatch]);
 
 

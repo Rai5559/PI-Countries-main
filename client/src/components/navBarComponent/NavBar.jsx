@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux";
-import { NavBarContainer, NavLinks, SearchBarContainer, FilterContainer } from "./navBarStyles";
+import { NavBarContainer, NavLinks, SearchBarContainer, FilterContainer, Img } from "./navBarStyles";
 import { clearSearch, searchCountries, filterByContinent, filterByActivity, sortByName, sortByPopulation } from "../../redux/actions";
+import mapa from "../../utils/images/mapa.png";
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -40,9 +41,6 @@ export default function NavBar() {
   return (
     <NavBarContainer>
       <NavLinks>
-        <Link to="/home" >
-          <h3>Home</h3>
-        </Link>
         <Link to="/form">
           <h3>Form</h3>
         </Link>
@@ -50,9 +48,11 @@ export default function NavBar() {
           <h3>Activities</h3>
         </Link>
       </NavLinks>
+      <Img src={`${mapa}`} alt="" />
       <SearchBarContainer>
         <input type="text" placeholder="Search Country" onChange={handleSearch} />
       </SearchBarContainer>
+      <Img src={`${mapa}`} alt="" />
       <FilterContainer>
         <select onChange={handleContinentFilter}>
           <option value="">Filter by Continent</option>

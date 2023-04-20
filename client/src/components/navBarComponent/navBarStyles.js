@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const NavBarContainer = styled.div`
-  margin: 10px 30px 0;
+  margin: -10px 30px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,4 +67,11 @@ export const FilterContainer = styled.div`
     margin-right: 10px;
     font-size: 16px;
   }
+`;
+
+export const Img = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
 `;

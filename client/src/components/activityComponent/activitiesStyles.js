@@ -73,7 +73,7 @@ export const ActivityInfo = styled.div`
 export const HomeButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20rem;
+  margin-top: 15rem;
   button {
     background-color: #ccc;
     color: white;
