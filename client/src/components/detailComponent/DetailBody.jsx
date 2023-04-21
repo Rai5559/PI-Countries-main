@@ -33,14 +33,16 @@ import {
               <h2>Population: {country.population} inhabitants</h2>
               <h2>
                 Activities:{" "}
-                {country.activities.map((activity) => (
+                {country.activities.length>0? (country.activities.map((activity) => (
                   <ul key={activity.id}>
                     <li
                       onMouseOver={() => setSelectedActivity(activity)}
                       onMouseOut={() => setSelectedActivity(null)}
                     >{`${activity.name}`}</li>
                   </ul>
-                ))}
+                ))
+          ) : ( <span>No available activities</span>)
+                }
                 {selectedActivity && (
                   <FloatingBox>
                     <p>Difficulty: {selectedActivity.difficulty}</p>

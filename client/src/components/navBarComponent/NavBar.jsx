@@ -42,7 +42,7 @@ export default function NavBar() {
     <NavBarContainer>
       <NavLinks>
         <Link to="/form">
-          <h3>Form</h3>
+          <h3>New Activity</h3>
         </Link>
         <Link to="/activities">
           <h3>Activities</h3>
