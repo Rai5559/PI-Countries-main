@@ -14,7 +14,7 @@ export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export function getCountries() {
   return function (dispatch) {
     try {
-      return axios.get("countries").then((res) => {
+      return axios.get("/countries").then((res) => {
         dispatch({ type: GET_COUNTRIES, payload: res.data });
       });
     } catch (error) {
@@ -26,7 +26,7 @@ export function getCountries() {
 export function getCountryDetail(id) {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`countries/${id}`);
+      const res = await axios.get(`/countries/${id}`);
       dispatch({ type: GET_COUNTRY_DETAIL, payload: res.data });
     } catch (error) {
       console.log(error.message + ", Please contact the administrator/support");
@@ -37,7 +37,7 @@ export function getCountryDetail(id) {
 export const searchCountries = (searchTerm) => {
     return async function (dispatch) {
         try {
-          const res = await axios.get(`countries?name=${searchTerm}`);
+          const res = await axios.get(`/countries?name=${searchTerm}`);
           dispatch({ type: SEARCH_COUNTRIES, payload: res.data });
         } catch (error) {
           console.log(error.message + ", Please contact the administrator/support");
@@ -82,7 +82,7 @@ export const sortByPopulation = (order) => {
 export const postActivity = (activity) => {
   return async function (dispatch) {
     try {
-      const res = await axios.post("activities", activity);
+      const res = await axios.post("/activities", activity);
       dispatch({ type: POST_ACTIVITY, payload: res.data });
     } catch (error) {
       console.error(error.message + ", Please contact the administrator/support");
@@ -93,7 +93,7 @@ export const postActivity = (activity) => {
 export const getActivities = () => {
   return async function (dispatch) {
     try {
-      const res = await axios.get("activities");
+      const res = await axios.get("/activities");
       dispatch({ type: GET_ACTIVITIES, payload: res.data });
     } catch (error) {
       console.error(error.message + ", Please contact the administrator/support");
