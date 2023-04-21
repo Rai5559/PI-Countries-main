@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useDispatch} from "react-redux";
 import { getCountries } from "./redux/actions";
 import Activities from './views/Activities/Activities';
+import axios from "axios"
+axios.defaults.baseURL = "http://localhost:3001/";
 
 function App() {
 
