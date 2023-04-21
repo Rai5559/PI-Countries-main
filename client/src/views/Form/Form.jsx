@@ -8,7 +8,7 @@ function Form({ postActivity, countries }) {
     name: "",
     difficulty: 1,
     duration: 1,
-    season: "Verano",
+    season: "Summer",
     countries: [],
   });
   const [success, setSuccess] = useState(false);
@@ -19,8 +19,8 @@ function Form({ postActivity, countries }) {
     countries: "",
   });
 
-  function handleChange(e) {
-    const value = e.target.value;
+  function handleChange(event) {
+    const value = event.target.value;
     
     if (e.target.name === "name") {
       if (!/^[a-zA-Z]{4,10}$/.test(value)) {
@@ -92,8 +92,8 @@ function Form({ postActivity, countries }) {
     }
   }
 
-  function handleSearch(e) {
-    setSearchTerm(e.target.value);
+  function handleSearch(event) {
+    setSearchTerm(event.target.value);
   }
 
   const filteredCountries = countries.filter((country) =>

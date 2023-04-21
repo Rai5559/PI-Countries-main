@@ -30,7 +30,7 @@ const FormBody = (props) => {
             <option value="5">5</option>
           </select>
 
-          <label htmlFor="duration">Duration</label>
+          <label htmlFor="duration">Duration (hr)</label>
           <select
             name="duration"
             value={input.duration}
@@ -42,13 +42,13 @@ const FormBody = (props) => {
               </option>
             ))}
           </select>
-
+            
           <label htmlFor="season">Season</label>
           <select name="season" value={input.season} onChange={handleChange}>
-            <option value="Verano">Verano</option>
-            <option value="Otoño">Otoño</option>
-            <option value="Invierno">Invierno</option>
-            <option value="Primavera">Primavera</option>
+            <option value="Summer">Summer</option>
+            <option value="Autumn">Autumn</option>
+            <option value="Winter">Winter</option>
+            <option value="Spring">Spring</option>
           </select>
 
           <CountriesContainer>
