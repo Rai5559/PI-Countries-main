@@ -1,5 +1,5 @@
 import React from "react";
-import { PaginationWrapper } from "./pagination";
+import { PaginationWrapper } from "./paginationStyles";
 
 const Pagination = ({ currentPage, totalPages, handlePageClick }) => {
   const pageLimit = 2;
@@ -32,7 +32,7 @@ const Pagination = ({ currentPage, totalPages, handlePageClick }) => {
       {startPage > 1 && <button onClick={() => handlePageClick(1)}>1</button>}
       {startPage > 2 && <span>...</span>}
       {pageNumbers.map((number) => (
-        <button key={number} onClick={() => handlePageClick(number)}>
+        <button key={number} onClick={() => handlePageClick(number)} className={currentPage === number ? "active" : ""}>
           {number}
         </button>
       ))}

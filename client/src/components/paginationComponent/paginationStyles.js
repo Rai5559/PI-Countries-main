@@ -17,6 +17,11 @@ export const PaginationWrapper = styled.div`
       opacity: 0.5;
       cursor: not-allowed;
     }
+    &.active {
+      background-color: #000;
+      color: #fff;
+      box-shadow: 2px 2px 2px 2px gray;
+    }
   }
   span {
     margin: 0 10px;
