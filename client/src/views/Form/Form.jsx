@@ -22,7 +22,7 @@ function Form({ postActivity, countries }) {
   function handleChange(event) {
     const value = event.target.value;
     
-    if (e.target.name === "name") {
+    if (event.target.name === "name") {
       if (!/^[a-zA-Z]{4,10}$/.test(value)) {
         setErrorMessage({
           ...errorMessage,
@@ -36,7 +36,7 @@ function Form({ postActivity, countries }) {
       }
     }
     
-    if (e.target.name === "countries") {
+    if (event.target.name === "countries") {
       if (input.countries.length === 0) {
         setErrorMessage({
           ...errorMessage,
@@ -53,7 +53,7 @@ function Form({ postActivity, countries }) {
     
     setInput({
       ...input,
-      [e.target.name]: value,
+      [event.target.name]: value,
     });
   }
   
