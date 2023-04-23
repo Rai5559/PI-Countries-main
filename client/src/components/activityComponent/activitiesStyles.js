@@ -52,6 +52,24 @@ export const ActivityCard = styled.div`
     height: 50%;
     margin: 0 auto;
   }
+  button {
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: auto;
+    width: 20%;
+    height: 20%;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 2px solid red;
+    transition: 0.5s;
+    &:hover {
+      background-color: #fff;
+      color: #1e1e1e;
+    }
+  }
 `;
 
 export const ActivityInfo = styled.div`

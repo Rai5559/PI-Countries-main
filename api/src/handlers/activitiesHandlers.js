@@ -1,6 +1,7 @@
 const {
   controllerCreateActivity,
   controllerGetActivities,
+  controllerDeleteActivity,
 } = require("../controllers/activityController");
 
 const postActivity = async (req, res) => {
@@ -35,7 +36,20 @@ const getActivities = async (req, res) => {
   }
 };
 
+const deleteActivity = async (req, res) => {
+  const { idActivity } = req.params;
+  try {
+    const activity = await controllerDeleteActivity(idActivity);
+    res.status(200).json({ message: "Activity deleted successfully", activity });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+
+
 module.exports = {
   postActivity,
   getActivities,
+  deleteActivity,
 };

@@ -3,7 +3,7 @@ import { Landing, Home, Detail, Form } from './utils/viewsExports';
 import { NavBar} from './utils/componentsExports';
 import { useEffect } from "react";
 import { useDispatch} from "react-redux";
-import { getCountries } from "./redux/actions";
+import { getCountries, getActivities } from "./redux/actions";
 import Activities from './views/Activities/Activities';
 import axios from "axios"
 axios.defaults.baseURL = "http://localhost:3001";
@@ -17,6 +17,7 @@ function App() {
 
   useEffect(() => {
       dispatch(getCountries());
+      dispatch(getActivities());
   }, [dispatch]);
 
 

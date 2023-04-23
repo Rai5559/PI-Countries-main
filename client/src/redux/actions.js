@@ -10,6 +10,7 @@ export const SORT_BY_NAME = "SORT_BY_NAME";
 export const SORT_BY_POPULATION = "SORT_BY_POPULATION";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
+export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 
 export function getCountries() {
   return function (dispatch) {
@@ -95,6 +96,17 @@ export const getActivities = () => {
     try {
       const res = await axios.get("/activities");
       dispatch({ type: GET_ACTIVITIES, payload: res.data });
+    } catch (error) {
+      console.error(error.message + ", Please contact the administrator/support");
+    }
+  };
+};
+
+export const deleteActivity = (id) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.delete(`/activities/${id}`);
+      dispatch({ type: DELETE_ACTIVITY, payload: res.data });
     } catch (error) {
       console.error(error.message + ", Please contact the administrator/support");
     }

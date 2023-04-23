@@ -9,6 +9,7 @@ import {
   SORT_BY_POPULATION,
   POST_ACTIVITY,
   GET_ACTIVITIES,
+  DELETE_ACTIVITY,
 } from "./actions";
 
 const initialState = {
@@ -107,6 +108,14 @@ function reducer(state = initialState, action) {
         return {
           ...state,
           activities: action.payload,
+        };
+
+      case DELETE_ACTIVITY:
+        return {
+          ...state,
+          activities: state.activities.filter(
+            (activity) => activity.id !== action.payload
+          ),
         };
 
     default:

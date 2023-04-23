@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import { ActivitiesWrapper, ActivitiesContainer, ActivityCard, ActivityInfo, HomeButtonWrapper } from './activitiesStyles';
 
 const ActivitiesBody = (props) => {
-    const { activities } = props;
+    const { activities, handleDelete } = props;
     return (
         <ActivitiesWrapper>
       <h1>Activities</h1>
       <ActivitiesContainer>
         {activities.map((activity, index) => (
-          
             <ActivityCard key={index}>
+              <button onClick={() => handleDelete(activity.id)}>X</button>
               <h2>{activity.name}</h2>
               <img src="https://images.wikidexcdn.net/mwuploads/esssbwiki/thumb/f/f2/latest/20160202180900/Kirby_SSB.png/800px-Kirby_SSB.png" alt="" />
               <ActivityInfo>
