@@ -1,5 +1,4 @@
-
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
   margin: -10px 30px 0;
@@ -18,9 +17,9 @@ export const NavBarContainer = styled.div`
 export const NavLinks = styled.div`
   display: flex;
   align-items: center;
-  font-family: 'Urban Jungle';
+  font-family: "Urban Jungle";
 
-  h3{
+  h3 {
     font-size: 1.5rem;
     justify-content: space-between;
     margin-right: 2rem;
@@ -44,7 +43,7 @@ export const SearchBarContainer = styled.div`
   input {
     padding: 0.5rem;
     border-radius: 0.25rem;
-  box-shadow: 2px 2px 2px 2px #000;
+    box-shadow: 2px 2px 2px 2px #000;
     font-size: 1rem;
   }
 `;
@@ -60,6 +59,17 @@ export const FilterContainer = styled.div`
 
   select {
     padding: 5px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    margin-right: 10px;
+  }
+
+  option {
+    background-color: #fff;
+    color: #000;
     font-size: 16px;
   }
 
