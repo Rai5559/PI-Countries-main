@@ -46,7 +46,6 @@ const controllerDeleteActivity = async (idActivity) => {
   return activity;
 };
 
-
 module.exports = {
   controllerCreateActivity,
   controllerGetActivities,

@@ -10,10 +10,10 @@ export const CardStyle = styled.div`
   flex-direction: column;
   margin: 1rem;
   height: 320px;
-    width: 270px;
-    box-shadow: 2px 2px 2px 2px #000;
-    transition: transform 0.5s ease-in-out;
-    &:hover {
+  width: 270px;
+  box-shadow: 2px 2px 2px 2px #000;
+  transition: transform 0.5s ease-in-out;
+  &:hover {
     transform: scale(1.1);
   }
 
@@ -28,7 +28,7 @@ export const CardStyle = styled.div`
     text-align: center;
     font-weight: bold;
     letter-spacing: 2px;
-    font-family: 'Urban Jungle';
+    font-family: "Urban Jungle";
     letter-spacing: 4px;
   }
 

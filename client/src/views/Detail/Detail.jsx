@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { getCountryDetail } from "../../redux/actions";
 import DetailBody from "../../components/detailComponent/DetailBody";
 
-
 const Detail = () => {
   const dispatch = useDispatch();
   const countryBdd = useSelector((state) => state.countryDetail);

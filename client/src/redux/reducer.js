@@ -89,34 +89,34 @@ function reducer(state = initialState, action) {
         countries: sortedByPopulation,
       };
 
-      case POST_ACTIVITY:
-        return {
-          ...state,
-          countries: state.countries.map((country) => {
-            if (country.id === action.payload.id) {
-              return {
-                ...country,
-                activities: [...country.activities, action.payload],
-              };
-            } else {
-              return country;
-            }
-          }),
-        };
+    case POST_ACTIVITY:
+      return {
+        ...state,
+        countries: state.countries.map((country) => {
+          if (country.id === action.payload.id) {
+            return {
+              ...country,
+              activities: [...country.activities, action.payload],
+            };
+          } else {
+            return country;
+          }
+        }),
+      };
 
-      case GET_ACTIVITIES:
-        return {
-          ...state,
-          activities: action.payload,
-        };
+    case GET_ACTIVITIES:
+      return {
+        ...state,
+        activities: action.payload,
+      };
 
-      case DELETE_ACTIVITY:
-        return {
-          ...state,
-          activities: state.activities.filter(
-            (activity) => activity.id !== action.payload
-          ),
-        };
+    case DELETE_ACTIVITY:
+      return {
+        ...state,
+        activities: state.activities.filter(
+          (activity) => activity.id !== action.payload
+        ),
+      };
 
     default:
       return { ...state };

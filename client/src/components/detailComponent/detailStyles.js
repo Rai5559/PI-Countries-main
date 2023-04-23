@@ -1,12 +1,11 @@
 import styled, { keyframes } from "styled-components";
 import mapa from "../../utils/images/mapa.png";
 
-
 export const Container = styled.div`
-background-image: url("https://i.pinimg.com/originals/5b/60/bc/5b60bc64b123e9a16cb931dcf77baa66.jpg");
+  background-image: url("https://i.pinimg.com/originals/5b/60/bc/5b60bc64b123e9a16cb931dcf77baa66.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  `;
+`;
 
 export const DivContainer = styled.div`
   display: flex;

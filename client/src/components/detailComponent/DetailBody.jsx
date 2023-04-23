@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
 import {
-    Container,
-    DivContainer,
-    LoadingContainer,
-    Map,
-    LoadingText,
-    ButtonContainer,
-    HomeButton,
-    FloatingBox,
-  } from "./detailStyles";
+  Container,
+  DivContainer,
+  LoadingContainer,
+  Map,
+  LoadingText,
+  ButtonContainer,
+  HomeButton,
+  FloatingBox,
+} from "./detailStyles";
 
-  const DetailBody= (props) => {
-    const { isLoading, countryBdd, selectedActivity, setSelectedActivity } = props;
-    return (
-        <Container>
+const DetailBody = (props) => {
+  const { isLoading, countryBdd, selectedActivity, setSelectedActivity } =
+    props;
+  return (
+    <Container>
       {isLoading ? (
         <LoadingContainer>
           <Map />
@@ -33,16 +34,18 @@ import {
               <h2>Population: {country.population} inhabitants</h2>
               <h2>
                 Activities:{" "}
-                {country.activities.length>0? (country.activities.map((activity) => (
-                  <ul key={activity.id}>
-                    <li
-                      onMouseOver={() => setSelectedActivity(activity)}
-                      onMouseOut={() => setSelectedActivity(null)}
-                    >{`${activity.name}`}</li>
-                  </ul>
-                ))
-          ) : ( <span>No available activities</span>)
-                }
+                {country.activities.length > 0 ? (
+                  country.activities.map((activity) => (
+                    <ul key={activity.id}>
+                      <li
+                        onMouseOver={() => setSelectedActivity(activity)}
+                        onMouseOut={() => setSelectedActivity(null)}
+                      >{`${activity.name}`}</li>
+                    </ul>
+                  ))
+                ) : (
+                  <span>No available activities</span>
+                )}
                 {selectedActivity && (
                   <FloatingBox>
                     <p>Difficulty: {selectedActivity.difficulty}</p>
@@ -61,8 +64,7 @@ import {
         </div>
       )}
     </Container>
-    )
-    }
+  );
+};
 
-    export default DetailBody;
-
+export default DetailBody;

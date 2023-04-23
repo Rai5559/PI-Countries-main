@@ -1,18 +1,14 @@
-
 //import React from "react";
 import Cards from "../../components/cardsComponent/Cards";
 
 //import { connect } from "react-redux";
 
-
-function Home () {
-
- 
+function Home() {
   return (
     <div>
-      <Cards/>
+      <Cards />
     </div>
-  )
+  );
 }
 
 export default Home;

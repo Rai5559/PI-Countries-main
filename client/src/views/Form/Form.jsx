@@ -21,7 +21,7 @@ function Form({ postActivity, countries }) {
 
   function handleChange(event) {
     const value = event.target.value;
-    
+
     if (event.target.name === "name") {
       if (!/^[a-zA-Z]{4,10}$/.test(value)) {
         setErrorMessage({
@@ -35,7 +35,7 @@ function Form({ postActivity, countries }) {
         });
       }
     }
-    
+
     if (event.target.name === "countries") {
       if (input.countries.length === 0) {
         setErrorMessage({
@@ -49,15 +49,12 @@ function Form({ postActivity, countries }) {
         });
       }
     }
-    
-    
+
     setInput({
       ...input,
       [event.target.name]: value,
     });
   }
-  
-  
 
   function handleCountrySelect(country) {
     if (!input.countries.includes(country.id)) {

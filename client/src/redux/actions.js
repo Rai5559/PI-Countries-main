@@ -36,14 +36,14 @@ export function getCountryDetail(id) {
 }
 
 export const searchCountries = (searchTerm) => {
-    return async function (dispatch) {
-        try {
-          const res = await axios.get(`/countries?name=${searchTerm}`);
-          dispatch({ type: SEARCH_COUNTRIES, payload: res.data });
-        } catch (error) {
-          console.log(error.message + ", Please contact the administrator/support");
-        }
-};
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/countries?name=${searchTerm}`);
+      dispatch({ type: SEARCH_COUNTRIES, payload: res.data });
+    } catch (error) {
+      console.log(error.message + ", Please contact the administrator/support");
+    }
+  };
 };
 
 export const clearSearch = () => {
@@ -86,7 +86,9 @@ export const postActivity = (activity) => {
       const res = await axios.post("/activities", activity);
       dispatch({ type: POST_ACTIVITY, payload: res.data });
     } catch (error) {
-      console.error(error.message + ", Please contact the administrator/support");
+      console.error(
+        error.message + ", Please contact the administrator/support"
+      );
     }
   };
 };
@@ -97,7 +99,9 @@ export const getActivities = () => {
       const res = await axios.get("/activities");
       dispatch({ type: GET_ACTIVITIES, payload: res.data });
     } catch (error) {
-      console.error(error.message + ", Please contact the administrator/support");
+      console.error(
+        error.message + ", Please contact the administrator/support"
+      );
     }
   };
 };
@@ -108,11 +112,12 @@ export const deleteActivity = (id) => {
       const res = await axios.delete(`/activities/${id}`);
       dispatch({ type: DELETE_ACTIVITY, payload: res.data });
     } catch (error) {
-      console.error(error.message + ", Please contact the administrator/support");
+      console.error(
+        error.message + ", Please contact the administrator/support"
+      );
     }
   };
 };
-
 
 // export function getCountryDetail(id) {
 //     return function(dispatch) {

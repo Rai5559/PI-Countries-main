@@ -32,7 +32,11 @@ const Pagination = ({ currentPage, totalPages, handlePageClick }) => {
       {startPage > 1 && <button onClick={() => handlePageClick(1)}>1</button>}
       {startPage > 2 && <span>...</span>}
       {pageNumbers.map((number) => (
-        <button key={number} onClick={() => handlePageClick(number)} className={currentPage === number ? "active" : ""}>
+        <button
+          key={number}
+          onClick={() => handlePageClick(number)}
+          className={currentPage === number ? "active" : ""}
+        >
           {number}
         </button>
       ))}

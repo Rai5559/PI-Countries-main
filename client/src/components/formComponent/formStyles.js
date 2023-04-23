@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BGContainer = styled.div`
-background-image: url("https://i.pinimg.com/originals/5b/60/bc/5b60bc64b123e9a16cb931dcf77baa66.jpg");
+  background-image: url("https://i.pinimg.com/originals/5b/60/bc/5b60bc64b123e9a16cb931dcf77baa66.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   height: 100vh;
@@ -10,7 +10,7 @@ background-image: url("https://i.pinimg.com/originals/5b/60/bc/5b60bc64b123e9a16
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  `;
+`;
 
 export const GeneralContainer = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const GeneralContainer = styled.div`
   gap: 1rem;
   padding: 1rem;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
   width: 100%;
   max-width: 500px;
@@ -41,11 +41,10 @@ export const GeneralContainer = styled.div`
     cursor: pointer;
     font-size: 1.2rem;
   }
-  
 `;
 
 export const FormContainer = styled.form`
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -132,7 +131,6 @@ export const Selected = styled.span`
   border-radius: 10px;
   padding: 0.5rem;
   background-color: black;
-
 `;
 
 export const ErrorSpan = styled.span`
@@ -155,4 +153,3 @@ export const SuccessSpan = styled.span`
   margin-bottom: 1rem;
   transform: scale(1.2);
 `;
-

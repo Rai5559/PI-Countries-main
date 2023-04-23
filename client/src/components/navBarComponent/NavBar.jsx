@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector} from "react-redux";
-import { NavBarContainer, NavLinks, SearchBarContainer, FilterContainer, Img } from "./navBarStyles";
-import { clearSearch, searchCountries, filterByContinent, filterByActivity, sortByName, sortByPopulation } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  NavBarContainer,
+  NavLinks,
+  SearchBarContainer,
+  FilterContainer,
+  Img,
+} from "./navBarStyles";
+import {
+  clearSearch,
+  searchCountries,
+  filterByContinent,
+  filterByActivity,
+  sortByName,
+  sortByPopulation,
+} from "../../redux/actions";
 import mapa from "../../utils/images/mapa.png";
 
 export default function NavBar() {
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities);
-
 
   const handleSearch = (event) => {
     const name = event.target.value;
@@ -50,7 +62,11 @@ export default function NavBar() {
       </NavLinks>
       <Img src={`${mapa}`} alt="" />
       <SearchBarContainer>
-        <input type="text" placeholder="Search Country" onChange={handleSearch} />
+        <input
+          type="text"
+          placeholder="Search Country"
+          onChange={handleSearch}
+        />
       </SearchBarContainer>
       <Img src={`${mapa}`} alt="" />
       <FilterContainer>

@@ -29,7 +29,6 @@ const getCountriesByIdHandlers = async (req, res) => {
   }
 };
 
-
 module.exports = {
   getCountriesHandlers,
   getCountriesByIdHandlers,

@@ -1,11 +1,28 @@
-
-import { BGContainer, GeneralContainer, FormContainer, ErrorSpan, CountriesContainer, Selected, SuccessSpan } from "./formStyles";
+import {
+  BGContainer,
+  GeneralContainer,
+  FormContainer,
+  ErrorSpan,
+  CountriesContainer,
+  Selected,
+  SuccessSpan,
+} from "./formStyles";
 import { Link } from "react-router-dom";
 
-
 const FormBody = (props) => {
-    const { handleSubmit, handleChange, errorMessage, input, searchTerm, handleSearch, filteredCountries, handleCountrySelect, handleCountryRemove, success } = props;
- return (
+  const {
+    handleSubmit,
+    handleChange,
+    errorMessage,
+    input,
+    searchTerm,
+    handleSearch,
+    filteredCountries,
+    handleCountrySelect,
+    handleCountryRemove,
+    success,
+  } = props;
+  return (
     <BGContainer>
       <GeneralContainer>
         <FormContainer onSubmit={handleSubmit}>
@@ -42,7 +59,7 @@ const FormBody = (props) => {
               </option>
             ))}
           </select>
-            
+
           <label htmlFor="season">Season</label>
           <select name="season" value={input.season} onChange={handleChange}>
             <option value="Summer">Summer</option>
@@ -86,7 +103,9 @@ const FormBody = (props) => {
           </CountriesContainer>
           <button type="submit">Create</button>
           {errorMessage.other && <ErrorSpan>{errorMessage.other}</ErrorSpan>}
-          {success && <SuccessSpan> Activity created successfully! </SuccessSpan>}
+          {success && (
+            <SuccessSpan> Activity created successfully! </SuccessSpan>
+          )}
           {success && (
             <button onClick={() => window.location.reload()}>OK</button>
           )}
@@ -96,7 +115,7 @@ const FormBody = (props) => {
         </Link>
       </GeneralContainer>
     </BGContainer>
-    );
+  );
 };
 
 export default FormBody;
