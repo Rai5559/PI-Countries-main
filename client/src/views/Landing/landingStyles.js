@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    background-size: 100% 100%;
+  }
 `;
 
 export const Title = styled.h1`
@@ -18,6 +22,10 @@ export const Title = styled.h1`
   margin-top: 0px;
   opacity: 0.85;
   letter-spacing: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 4rem;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -26,6 +34,10 @@ export const ButtonWrapper = styled.div`
   margin-bottom: 20px;
   height: fit-content;
   margin-bottom: 80px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const Button = styled.button`
@@ -45,5 +57,10 @@ export const Button = styled.button`
 
   &:hover {
     background-color: #555;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    padding: 10px 20px;
   }
 `;
