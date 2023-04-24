@@ -101,7 +101,9 @@ const FormBody = (props) => {
               <ErrorSpan>{errorMessage.countries}</ErrorSpan>
             )}
           </CountriesContainer>
-          <button type="submit">Create</button>
+          {!errorMessage.name &&
+            !errorMessage.countries &&
+            !errorMessage.other && <button type="submit">Create</button>}
           {errorMessage.other && <ErrorSpan>{errorMessage.other}</ErrorSpan>}
           {success && (
             <SuccessSpan> Activity created successfully! </SuccessSpan>

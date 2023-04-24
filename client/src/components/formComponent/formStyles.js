@@ -10,6 +10,10 @@ export const BGContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 600px) {
+    background-size: 100% 100%;
+  }
 `;
 
 export const GeneralContainer = styled.div`
@@ -40,6 +44,14 @@ export const GeneralContainer = styled.div`
     margin-left: 0.5rem;
     cursor: pointer;
     font-size: 1.2rem;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -105,6 +117,14 @@ export const FormContainer = styled.form`
     cursor: pointer;
     margin-top: 1rem;
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const CountriesContainer = styled.div`
@@ -119,6 +139,14 @@ export const CountriesContainer = styled.div`
   }
   ul {
     margin-top: 20px;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 1rem;
   }
 `;
 

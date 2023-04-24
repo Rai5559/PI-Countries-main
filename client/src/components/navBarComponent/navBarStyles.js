@@ -12,6 +12,11 @@ export const NavBarContainer = styled.div`
   border-radius: 10px;
   box-shadow: 2px 2px 2px 2px #000;
   padding: 0.5rem 1rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const NavLinks = styled.div`
@@ -37,6 +42,11 @@ export const NavLinks = styled.div`
       text-decoration: underline;
     }
   }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const SearchBarContainer = styled.div`
@@ -45,6 +55,10 @@ export const SearchBarContainer = styled.div`
     border-radius: 0.25rem;
     box-shadow: 2px 2px 2px 2px #000;
     font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    margin: 0.5rem;
   }
 `;
 
@@ -76,6 +90,11 @@ export const FilterContainer = styled.div`
   label {
     margin-right: 10px;
     font-size: 16px;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 

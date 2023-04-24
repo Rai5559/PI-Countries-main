@@ -15,8 +15,8 @@ function Form({ postActivity, countries }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [errorMessage, setErrorMessage] = useState({
     other: "",
-    name: "",
-    countries: "",
+    name: "*",
+    countries: "*",
   });
 
   function handleChange(event) {
@@ -63,6 +63,10 @@ function Form({ postActivity, countries }) {
         countries: [...input.countries, country.id],
       });
     }
+    setErrorMessage({
+      ...errorMessage,
+      countries: "",
+    });
   }
 
   function handleCountryRemove(index) {

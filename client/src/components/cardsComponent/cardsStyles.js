@@ -6,4 +6,10 @@ export const CardsStyle = styled.div`
   gap: 1rem;
   padding: 1rem;
   text-align: center;
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
