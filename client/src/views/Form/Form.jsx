@@ -35,21 +35,6 @@ function Form({ postActivity, countries }) {
         });
       }
     }
-
-    if (event.target.name === "countries") {
-      if (input.countries.length === 0) {
-        setErrorMessage({
-          ...errorMessage,
-          countries: "Please select at least one country",
-        });
-      } else {
-        setErrorMessage({
-          ...errorMessage,
-          countries: "",
-        });
-      }
-    }
-
     setInput({
       ...input,
       [event.target.name]: value,
@@ -57,16 +42,18 @@ function Form({ postActivity, countries }) {
   }
 
   function handleCountrySelect(country) {
+    setInput.countries = input.countries || [];
     if (!input.countries.includes(country.id)) {
       setInput({
         ...input,
         countries: [...input.countries, country.id],
       });
     }
-    setErrorMessage({
-      ...errorMessage,
-      countries: "",
-    });
+    if (input.countries.length >= 0)
+      setErrorMessage({
+        ...errorMessage,
+        countries: "",
+      });
   }
 
   function handleCountryRemove(index) {
@@ -74,6 +61,16 @@ function Form({ postActivity, countries }) {
       ...input,
       countries: input.countries.filter((_, i) => i !== index),
     });
+    console.log(input.countries);
+    input.countries.length > 1
+      ? setErrorMessage({
+          ...errorMessage,
+          countries: "",
+        })
+      : setErrorMessage({
+          ...errorMessage,
+          countries: "Please select at least one country",
+        });
   }
 
   async function handleSubmit(event) {
@@ -88,7 +85,7 @@ function Form({ postActivity, countries }) {
     } catch (error) {
       setErrorMessage({
         ...errorMessage,
-        other: `${error.response.data}`,
+        other: `${error}`,
       });
     }
   }

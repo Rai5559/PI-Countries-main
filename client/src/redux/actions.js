@@ -19,7 +19,9 @@ export function getCountries() {
         dispatch({ type: GET_COUNTRIES, payload: res.data });
       });
     } catch (error) {
-      console.log(error.message + ", Please contact the administrator/support");
+      const errorMessage =
+        error.response + ", Please contact the administrator/support";
+      throw new Error(errorMessage);
     }
   };
 }
@@ -30,7 +32,9 @@ export function getCountryDetail(id) {
       const res = await axios.get(`/countries/${id}`);
       dispatch({ type: GET_COUNTRY_DETAIL, payload: res.data });
     } catch (error) {
-      console.log(error.message + ", Please contact the administrator/support");
+      const errorMessage =
+        error.response + ", Please contact the administrator/support";
+      throw new Error(errorMessage);
     }
   };
 }
@@ -41,7 +45,9 @@ export const searchCountries = (searchTerm) => {
       const res = await axios.get(`/countries?name=${searchTerm}`);
       dispatch({ type: SEARCH_COUNTRIES, payload: res.data });
     } catch (error) {
-      console.log(error.message + ", Please contact the administrator/support");
+      const errorMessage =
+        error.response + ", Please contact the administrator/support";
+      throw new Error(errorMessage);
     }
   };
 };
@@ -86,9 +92,9 @@ export const postActivity = (activity) => {
       const res = await axios.post("/activities", activity);
       dispatch({ type: POST_ACTIVITY, payload: res.data });
     } catch (error) {
-      console.error(
-        error.message + ", Please contact the administrator/support"
-      );
+      const errorMessage =
+        error.response.data + ", Please reload and try again";
+      throw new Error(errorMessage);
     }
   };
 };
@@ -99,9 +105,9 @@ export const getActivities = () => {
       const res = await axios.get("/activities");
       dispatch({ type: GET_ACTIVITIES, payload: res.data });
     } catch (error) {
-      console.error(
-        error.message + ", Please contact the administrator/support"
-      );
+      const errorMessage =
+        error.response + ", Please contact the administrator/support";
+      throw new Error(errorMessage);
     }
   };
 };
@@ -112,9 +118,9 @@ export const deleteActivity = (id) => {
       const res = await axios.delete(`/activities/${id}`);
       dispatch({ type: DELETE_ACTIVITY, payload: res.data });
     } catch (error) {
-      console.error(
-        error.message + ", Please contact the administrator/support"
-      );
+      const errorMessage =
+        error.response + ", Please contact the administrator/support";
+      throw new Error(errorMessage);
     }
   };
 };
