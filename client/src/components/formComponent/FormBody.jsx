@@ -105,6 +105,15 @@ const FormBody = (props) => {
             !errorMessage.countries &&
             !errorMessage.other && <button type="submit">Create</button>}
           {errorMessage.other && <ErrorSpan>{errorMessage.other}</ErrorSpan>}
+          {errorMessage.other && (
+            <button
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              Reload
+            </button>
+          )}
           {success && (
             <SuccessSpan> Activity created successfully! </SuccessSpan>
           )}
