@@ -20,7 +20,7 @@ function Form({ postActivity, countries }) {
   });
 
   function handleChange(event) {
-    const value = event.target.value;
+    let value = event.target.value;
 
     if (event.target.name === "name") {
       if (!/^[a-zA-Z]{4,10}$/.test(value)) {
@@ -34,6 +34,7 @@ function Form({ postActivity, countries }) {
           name: "",
         });
       }
+      value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
     }
     setInput({
       ...input,
