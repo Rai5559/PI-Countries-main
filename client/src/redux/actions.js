@@ -124,12 +124,3 @@ export const deleteActivity = (id) => {
     }
   };
 };
-
-// export function getCountryDetail(id) {
-//     return function(dispatch) {
-//         return axios.get(`countries/${id}`)
-//             .then((res) => {
-//                 dispatch({type: GET_COUNTRY_DETAIL, payload: res.data})
-//             })
-//     }
-// }

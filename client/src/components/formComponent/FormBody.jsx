@@ -103,8 +103,11 @@ const FormBody = (props) => {
           </CountriesContainer>
           {!errorMessage.name &&
             !errorMessage.countries &&
-            !errorMessage.other && <button type="submit">Create</button>}
-          {errorMessage.other && <ErrorSpan>{errorMessage.other}</ErrorSpan>}
+            !errorMessage.other &&
+            !success && <button type="submit">Create</button>}
+          {errorMessage.other && !success && (
+            <ErrorSpan>{errorMessage.other}</ErrorSpan>
+          )}
           {errorMessage.other && (
             <button
               onClick={() => {

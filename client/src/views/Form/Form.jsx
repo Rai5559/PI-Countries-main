@@ -37,7 +37,7 @@ function Form({ postActivity, countries }) {
     }
     setInput({
       ...input,
-      [event.target.name]: value,
+      [event.target.name]: value.toLowerCase(),
     });
   }
 

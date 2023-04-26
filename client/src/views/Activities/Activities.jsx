@@ -1,24 +1,40 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { deleteActivity } from "../../redux/actions";
 import ActivitiesBody from "../../components/activityComponent/ActivityBody";
 
-const Activities = () => {
-  const activities = useSelector((state) => state.activities);
-  const dispatch = useDispatch();
+class Activities extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
 
-  const handleDelete = async (id) => {
+  handleDelete(id) {
     if (window.confirm("Are you sure you want to delete this activity?")) {
-      await dispatch(deleteActivity(id));
+      this.props.deleteActivity(id);
       window.location.reload();
     }
-  };
+  }
 
-  return (
-    <div>
-      <ActivitiesBody activities={activities} handleDelete={handleDelete} />
-    </div>
-  );
+  render() {
+    const { activities } = this.props;
+    return (
+      <div>
+        <ActivitiesBody
+          activities={activities}
+          handleDelete={this.handleDelete}
+        />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => ({
+  activities: state.activities,
+});
+
+const mapDispatchToProps = {
+  deleteActivity,
 };
 
-export default Activities;
+export default connect(mapStateToProps, mapDispatchToProps)(Activities);
