@@ -42,7 +42,6 @@ function Form({ postActivity, countries }) {
   }
 
   function handleCountrySelect(country) {
-    setInput.countries = input.countries || [];
     if (!input.countries.includes(country.id)) {
       setInput({
         ...input,
@@ -61,7 +60,6 @@ function Form({ postActivity, countries }) {
       ...input,
       countries: input.countries.filter((_, i) => i !== index),
     });
-    console.log(input.countries);
     input.countries.length > 1
       ? setErrorMessage({
           ...errorMessage,
