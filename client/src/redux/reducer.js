@@ -12,6 +12,8 @@ import {
   DELETE_ACTIVITY,
 } from "./actions";
 
+//hola
+
 const initialState = {
   countries: [],
   countryDetail: [],
