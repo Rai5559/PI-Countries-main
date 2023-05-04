@@ -12,8 +12,6 @@ import {
   DELETE_ACTIVITY,
 } from "./actions";
 
-//hola
-
 const initialState = {
   countries: [],
   countryDetail: [],
@@ -46,16 +44,16 @@ function reducer(state = initialState, action) {
         searchResults: [],
       };
     case FILTER_BY_CONTINENT:
-      const filteredCountries = state.countries.filter(
-        (country) => country.continent === action.payload
-      );
+      let filteredCountriesByContinent = state.countries.filter((country) => {
+        return country.continent === action.payload;
+      });
       return {
         ...state,
-        searchResults: filteredCountries,
+        searchResults: filteredCountriesByContinent,
       };
 
     case FILTER_BY_ACTIVITY:
-      const filteredByActivity = state.countries.filter((country) => {
+      let filteredByActivity = state.countries.filter((country) => {
         return country.activities.some(
           (activity) => activity.name === action.payload
         );
@@ -66,7 +64,11 @@ function reducer(state = initialState, action) {
       };
 
     case SORT_BY_NAME:
-      const sortedByName = [...state.countries].sort((a, b) => {
+      let sortedByName = [
+        ...(state.searchResults.length > 0
+          ? state.searchResults
+          : state.countries),
+      ].sort((a, b) => {
         if (action.payload === "asc") {
           return a.name.localeCompare(b.name);
         } else {
@@ -75,11 +77,15 @@ function reducer(state = initialState, action) {
       });
       return {
         ...state,
-        countries: sortedByName,
+        searchResults: sortedByName,
       };
 
     case SORT_BY_POPULATION:
-      const sortedByPopulation = [...state.countries].sort((a, b) => {
+      let sortedByPopulation = [
+        ...(state.searchResults.length > 0
+          ? state.searchResults
+          : state.countries),
+      ].sort((a, b) => {
         if (action.payload === "asc") {
           return a.population - b.population;
         } else {
@@ -88,7 +94,7 @@ function reducer(state = initialState, action) {
       });
       return {
         ...state,
-        countries: sortedByPopulation,
+        searchResults: sortedByPopulation,
       };
 
     case POST_ACTIVITY:

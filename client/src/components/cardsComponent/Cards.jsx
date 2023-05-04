@@ -12,8 +12,12 @@ const Cards = () => {
       ? state.searchResults
       : state.countries;
   });
+
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage] = useState(10);
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [countries]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -32,7 +36,6 @@ const Cards = () => {
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
   if (currentCountries.length === 0) {
     return (
       <CardsStyle>
